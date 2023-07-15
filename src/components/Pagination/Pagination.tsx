@@ -3,13 +3,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 const ITEMS_PER_PAGE = 6;
 
-const Pagination = ({
-  products,
-  gridColumns,
-}: {
-  products: TProduct[];
-  gridColumns: number;
-}) => {
+const Pagination = ({ products }: { products: TProduct[] }) => {
   const router = useRouter();
   const searchParams = useSearchParams()!;
   const currentPage = Number(searchParams.get("page")) || 1;
@@ -28,17 +22,13 @@ const Pagination = ({
         onClick={() => {
           router.push(
             "?page=" +
-              (currentPage <
-              Math.ceil(((products.length / gridColumns) * 2) / ITEMS_PER_PAGE)
+              (currentPage < Math.ceil(products.length / ITEMS_PER_PAGE)
                 ? currentPage + 1
                 : currentPage)
           );
         }}
         className="hover:text-orange-700 transition-colors duration-75"
-        disabled={
-          currentPage ===
-          Math.ceil(((products.length / gridColumns) * 2) / ITEMS_PER_PAGE)
-        }
+        disabled={currentPage === Math.ceil(products.length / ITEMS_PER_PAGE)}
       >
         Next
       </button>

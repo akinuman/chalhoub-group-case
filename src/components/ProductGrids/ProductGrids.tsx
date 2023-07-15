@@ -11,6 +11,7 @@ import Pagination from "../Pagination/Pagination";
 
 const COLUMN_OPTIONS = [3, 4, 5];
 const BREAKPOINT = 1024;
+const ITEMS_PER_PAGE = 6;
 
 const ProductGrids = ({
   products,
@@ -31,8 +32,8 @@ const ProductGrids = ({
 
   // Slice the products array to get only the products for the current page
   const productsForCurrentPage = products.slice(
-    (currentPage - 1) * gridColumns * 2,
-    currentPage * gridColumns * 2
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
   );
 
   useEffect(() => {
@@ -95,7 +96,7 @@ const ProductGrids = ({
           </ul>
         </div>
       </div>
-      <Pagination products={products} gridColumns={gridColumns} />
+      <Pagination products={products} />
     </div>
   );
 };
