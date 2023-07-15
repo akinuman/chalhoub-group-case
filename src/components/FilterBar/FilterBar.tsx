@@ -27,7 +27,7 @@ const FilterBar = ({
   );
 
   return (
-    <div className="p-4 col-span-12 md:col-span-3 mt-16">
+    <div className="p-4 col-span-12 md:col-span-2 md:mt-16">
       <h2 className="mb-4 text-lg font-bold">Filters</h2>
       <Accordion title="Color">
         <div className="flex flex-col gap-2.5 pt-2.5">

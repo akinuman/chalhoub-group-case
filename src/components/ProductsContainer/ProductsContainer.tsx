@@ -43,7 +43,7 @@ const ProductsContainer = ({ products }: { products: TProduct[] }) => {
 
   useEffect(() => {
     setFilteredProducts(filterProducts({ products, filters }));
-  }, [filters, products, filteredProducts]);
+  }, [filters, products]);
 
   const handleFilterChange = (newFilters: Partial<Filters>) => {
     setFilters((prevFilters) => ({ ...prevFilters, ...newFilters }));

@@ -5,8 +5,8 @@ import { textTruncate } from "@/utils/textTruncate";
 const ProductCard = ({ product }: { product: TProduct }) => {
   const { title, description, price, image, rating } = product;
   return (
-    <li className="cursor-pointer flex flex-col border border-gray-300 rounded-md p-2.5 gap-2.5 transition-colors">
-      <div className="relative flex max-h-[140px] h-[340px] w-full rounded-md items-center justify-center overflow-hidden bg-white">
+    <li className="cursor-pointer flex flex-col max-h-content border border-gray-300 rounded-md p-2.5 gap-2.5 transition-colors">
+      <div className="relative flex max-h-[140px] w-full rounded-md items-center justify-center overflow-hidden bg-white">
         <Image
           height={300}
           width={300}
@@ -23,10 +23,10 @@ const ProductCard = ({ product }: { product: TProduct }) => {
         </h2>
 
         <p className="text-sm text-gray-500 overflow-ellipsis overflow-hidden h-26 md:h-30">
-          {textTruncate(description, 140)}
+          {textTruncate(description, 80)}
         </p>
 
-        <div className="flex flex-col text-left justify-between">
+        <div className="text-left">
           <div>
             <span className="text-sm md:text-lg font-semibold">{`$${price}`}</span>
           </div>

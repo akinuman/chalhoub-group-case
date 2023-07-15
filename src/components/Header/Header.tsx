@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { FaBars } from "react-icons/fa";
 
@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center p-5 bg-black-800 text-white">
+    <header className="flex justify-between max-w-[1400px] mx-auto  items-center p-5 bg-black-800 text-white">
       <div className="w-20">
         <Image
           src="/logo.png"

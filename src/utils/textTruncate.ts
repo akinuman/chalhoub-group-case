@@ -7,5 +7,18 @@ export const textTruncate = (text: string, maxLength: number) => {
     return text;
   }
 
-  return `${text.substring(0, maxLength)}...`;
+  const words = text.split(" ");
+
+  let truncated = "";
+
+  for (const word of words) {
+    if ((truncated + word + " ").length > maxLength) {
+      break;
+    }
+    truncated += word + " ";
+  }
+
+  truncated = truncated.trim() + "...";
+
+  return truncated;
 };
