@@ -1,9 +1,9 @@
 "use client";
 
 import { Filters, TProduct } from "@/types/types";
-import ProductGrids from "../../components/ProductGrids/ProductGrids";
+import ProductGrids from "../ProductGrids/ProductGrids";
 import { useEffect, useState, useMemo } from "react";
-import FilterBar from "../../components/FilterBar/FilterBar";
+import FilterBar from "../FilterBar/FilterBar";
 
 const filterProducts = ({
   products,

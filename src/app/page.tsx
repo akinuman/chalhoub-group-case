@@ -1,4 +1,4 @@
-import ProductsContainer from "@/containers/ProductsContainer/ProductsContainer";
+import ProductsContainer from "@/components/ProductsContainer/ProductsContainer";
 import { TProduct } from "../types/types";
 import PromotionalBanner from "@/components/PromotionalBanner/PromotionalBanner";
 
