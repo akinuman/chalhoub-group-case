@@ -1,9 +1,8 @@
 import ProductsContainer from "@/components/ProductsContainer/ProductsContainer";
 import { TProduct } from "../types/types";
 import PromotionalBanner from "@/components/PromotionalBanner/PromotionalBanner";
-import { PageProps } from "../../.next/types/app/layout";
 
-export default async function ProductsPage({ searchParams }: PageProps) {
+export default async function ProductsPage() {
   const resp = await fetch(`https://fakestoreapi.com/products`);
   const rawProducts = await resp.json();
   const colors = ["red", "blue", "green", "yellow"];
@@ -13,8 +12,6 @@ export default async function ProductsPage({ searchParams }: PageProps) {
     ...product,
     color: colors[Math.floor(Math.random() * colors.length)],
   }));
-
-  // TODO: Check the searchParams and filter the products accordingly page number.
 
   return (
     <main className="flex w-full flex-col cursor-default">

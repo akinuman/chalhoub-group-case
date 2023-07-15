@@ -22,7 +22,10 @@ const Accordion = ({
   }, [isOpen]);
 
   return (
-    <div className="w-full py-4 max-w-md md:mx-auto rounded-xl shadow-md overflow-hidden md:max-w-3xl ">
+    <div
+      data-testid="accordion"
+      className="w-full py-4 max-w-md md:mx-auto rounded-xl shadow-md overflow-hidden md:max-w-3xl "
+    >
       <div className="flex flex-col flex-1">
         <div className="md:flex-shrink-0">
           <button

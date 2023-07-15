@@ -7,6 +7,7 @@ const PromotionalBanner = ({
 }) => {
   return (
     <div
+      data-testid="promotional-banner"
       className="h-[347px] w-full bg-cover bg-center flex items-center justify-end text-black"
       style={{ backgroundImage: `url(/banner.png)` }}
     >

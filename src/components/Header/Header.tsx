@@ -5,12 +5,6 @@ import Image from "next/image";
 import { FaBars } from "react-icons/fa";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <header className="flex justify-between max-w-[1400px] mx-auto  items-center p-5 bg-black-800 text-white">
       <div className="w-20">
@@ -23,7 +17,7 @@ const Header = () => {
         />
       </div>
       <div>
-        <button onClick={toggleMenu}>
+        <button>
           <FaBars
             size={24}
             className="hover:text-orange-700 duration-75 transition-colors"

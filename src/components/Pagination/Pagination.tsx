@@ -21,10 +21,11 @@ const Pagination = ({ products }: { products: TProduct[] }) => {
       <button
         onClick={() => {
           router.push(
-            "?page=" +
-              (currentPage < Math.ceil(products.length / ITEMS_PER_PAGE)
+            `?page=${
+              currentPage < Math.ceil(products.length / ITEMS_PER_PAGE)
                 ? currentPage + 1
-                : currentPage)
+                : currentPage
+            }`
           );
         }}
         className="hover:text-orange-700 transition-colors duration-75"

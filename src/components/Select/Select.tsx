@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 const Select = ({
@@ -21,6 +19,8 @@ const Select = ({
   return (
     <div className="ml-auto z-50 md:relative px-2 hidden lg:block">
       <button
+        data-testid="selectButton"
+        id="selectButton"
         className="bg-black text-white px-4 py-2 rounded-md hover:text-orange-700 transition-all duration-75"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -35,6 +35,7 @@ const Select = ({
         {options.map((option, index) => (
           <li key={index}>
             <button
+              data-testid={`optionButton-${option}`}
               className="block w-full px-4 py-2 text-left text-black hover:text-orange-700 rounded-md transition-colors duration-75"
               onClick={() => handleOptionClick(option)}
             >

@@ -22,6 +22,7 @@ const ProductGrids = ({
   filters: Filters;
   handleSetDefault: () => void;
 }) => {
+  console.log(products);
   const windowWidth = useWindowWidth();
   const [gridColumns, setGridColumns] = useState(
     windowWidth && windowWidth < BREAKPOINT ? 2 : 3
@@ -86,7 +87,11 @@ const ProductGrids = ({
           >
             {productsForCurrentPage.length > 0 ? (
               productsForCurrentPage.map((product: TProduct) => (
-                <ProductCard product={product} key={product.id} />
+                <ProductCard
+                  data-testid="product-card"
+                  product={product}
+                  key={product.id}
+                />
               ))
             ) : (
               <div className="flex flex-col p-2.5">
