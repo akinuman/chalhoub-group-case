@@ -35,17 +35,10 @@ input[type='range'].slider-orange::-ms-track {
   border-radius: 16px;
 }
 
-/* input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  border: none;
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  background: #ff6b81; 
-  cursor: pointer;
-  margin-top: -4px;
-} */
-
+input[type='range'].slider-orange::-webkit-slider-thumb {
+  background: #C24141;
+  border-radius: 16px;
+}
 
 body {
   color: rgb(var(--foreground-rgb));

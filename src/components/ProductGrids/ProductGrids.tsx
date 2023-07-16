@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import Select from "../Select/Select";
 
-import Pagination from "../Pagination/Pagination";
-
 const COLUMN_OPTIONS = [3, 4, 5];
 const BREAKPOINT = 1024;
 
