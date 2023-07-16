@@ -8,7 +8,7 @@ const Pagination = ({ products }: { products: TProduct[] }) => {
   const searchParams = useSearchParams()!;
   const currentPage = Number(searchParams.get("page")) || 1;
   return (
-    <div className="flex justify-between px-2.5 ">
+    <div className="col-start-3 col-end-13 flex justify-between px-2.5 md:px-5">
       <button
         onClick={() => {
           router.push("?page=" + (currentPage > 1 ? currentPage - 1 : 1));

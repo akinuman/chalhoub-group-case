@@ -4,6 +4,8 @@ import { Filters, TProduct } from "@/types/types";
 import ProductGrids from "../ProductGrids/ProductGrids";
 import { useEffect, useState, useMemo } from "react";
 import FilterBar from "../FilterBar/FilterBar";
+import { useSearchParams } from "next/navigation";
+import Pagination from "../Pagination/Pagination";
 
 const filterProducts = ({
   products,
@@ -21,8 +23,11 @@ const filterProducts = ({
   });
 };
 
+const ITEMS_PER_PAGE = 6;
+
 const ProductsContainer = ({ products }: { products: TProduct[] }) => {
   const [filteredProducts, setFilteredProducts] = useState<TProduct[]>([]);
+  const [paginatedProducts, setPaginatedProducts] = useState<TProduct[]>([]);
   const [filters, setFilters] = useState<Filters>({
     priceRange: [0, Infinity],
     color: "",
@@ -41,9 +46,18 @@ const ProductsContainer = ({ products }: { products: TProduct[] }) => {
     [products]
   );
 
+  const searchParams = useSearchParams()!;
+  const currentPage = Number(searchParams.get("page")) || 1;
+
   useEffect(() => {
-    setFilteredProducts(filterProducts({ products, filters }));
-  }, [filters, products]);
+    const filtered = filterProducts({ products, filters });
+    setFilteredProducts(filtered);
+    const paginated = filtered.slice(
+      (currentPage - 1) * ITEMS_PER_PAGE,
+      currentPage * ITEMS_PER_PAGE
+    );
+    setPaginatedProducts(paginated);
+  }, [filters, products, currentPage]);
 
   const handleFilterChange = (newFilters: Partial<Filters>) => {
     setFilters((prevFilters) => ({ ...prevFilters, ...newFilters }));
@@ -66,10 +80,11 @@ const ProductsContainer = ({ products }: { products: TProduct[] }) => {
         onFilterChange={handleFilterChange}
       />
       <ProductGrids
-        products={filteredProducts}
+        products={paginatedProducts}
         handleSetDefault={handleSetDefault}
         filters={filters}
       />
+      <Pagination products={filteredProducts} />
     </div>
   );
 };
