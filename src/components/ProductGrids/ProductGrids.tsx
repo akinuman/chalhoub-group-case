@@ -31,7 +31,6 @@ const ProductGrids = ({
   const searchParams = useSearchParams()!;
   const currentPage = Number(searchParams.get("page")) || 1;
 
-  // Slice the products array to get only the products for the current page
   const productsForCurrentPage = products.slice(
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE

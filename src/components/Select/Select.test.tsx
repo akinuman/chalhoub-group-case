@@ -40,7 +40,6 @@ describe("Select", () => {
     const optionButton = screen.getByTestId("optionButton-2");
     fireEvent.click(optionButton);
 
-    // Wait for the next tick to allow the state to update
     setTimeout(() => {
       const optionsList = screen.queryByRole("list");
       expect(optionsList).not.toBeInTheDocument();
